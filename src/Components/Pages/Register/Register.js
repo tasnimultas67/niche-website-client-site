@@ -1,8 +1,9 @@
 
 import { LockClosedIcon } from '@heroicons/react/solid'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useLocation, useHistory } from 'react-router-dom'
 import { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
+import './Register.css'
 
 
 const Register = () => {
@@ -100,12 +101,7 @@ const Register = () => {
             </div>
 
           </form>}
-          {isLoading && <button type="button" className="bg-rose-600 ..." >
-              <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-              
-              </svg>
-              Processing
-            </button>}
+          {isLoading && <div className="spinner icon-spinner-5" aria-hidden="true"></div>}
 
           <Link to='/login' className=" relative w-full flex justify-center border border-transparent text-sm font-medium rounded-md text-black ">Already Registered? Login</Link>
         </div>

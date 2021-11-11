@@ -48,20 +48,3 @@
 .spinner--steps2 {
     animation: anim-rotate 1s infinite steps(12);
 }
-
-.button-down-lin{
-    width: 100%; 
-    text-align: center; 
-    border-bottom: 1px solid rgb(51, 50, 50); 
-    line-height: 0.1em;
-    margin: 10px 0 20px; 
- } 
-
- 
-.button-down-lin span { 
-     background:#fff; 
-     padding:0 10px; 
- }
-/*  */
- 
-  

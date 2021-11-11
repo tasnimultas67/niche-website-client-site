@@ -1,13 +1,17 @@
 
 import { LockClosedIcon, } from '@heroicons/react/solid'
-import { Link } from 'react-router-dom'
+import { Link , useLocation, useHistory} from 'react-router-dom'
 import './Login.css'
 import { useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
+    const {user, loginUser, isLoading, authError} = useAuth()
 
+    const location = useLocation();
+    const history = useHistory();
 
     const handleOnBlur = e => {
       const field = e.target.name;
@@ -18,8 +22,7 @@ const Login = () => {
   }
 
   const handleLoginSubmit = e => {
-      
-    // registerUser(loginData.email, loginData.password, loginData.name, history);
+      loginUser(loginData.email, loginData.password, location, history)
     console.log(loginData)
     e.preventDefault();
 
@@ -28,7 +31,7 @@ const Login = () => {
   return (
     <>
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-sm w-full space-y-8">
+        {!isLoading && <div className="max-w-sm w-full space-y-8">
           <div>
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
             
@@ -77,7 +80,11 @@ const Login = () => {
                 Log in
               </button>
             </div>
+            {user?.email && <p className='text-green-500'>Successfully Logged in</p>}
+            {authError && <p className='text-red-500'>{authError}</p>}
+
           </form>
+          
           <div><h2 className='button-down-lin'><span>Or continue with</span></h2></div>
           <div className='flex'>
                 <div className='flex-grow mr-2'>
@@ -89,7 +96,8 @@ const Login = () => {
           </div>
          
           <Link to='/register' className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black ">New user? Create Account</Link>
-        </div>
+        </div>}
+        {isLoading && <div className="spinner icon-spinner-5" aria-hidden="true"></div>}
       </div>
     </>
   )

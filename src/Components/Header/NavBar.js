@@ -54,7 +54,7 @@ const NavBar =()=> {
                       </Link>
                     ))}
                    
-                    <Menu as="div" className="relative inline-block text-left z-40">
+                    {user?.email &&<Menu as="div" className="relative inline-block text-left z-40">
       <div>
         <Menu.Button className="inline-flex justify-center w-full text-gray-300 hover:bg-gray-700 hover:text-white shadow-sm px-4 py-2 text-sm font-medium rounded-md ">
           Dashboad
@@ -112,9 +112,9 @@ const NavBar =()=> {
           </div>
         </Menu.Items>
       </Transition>
-    </Menu>
+    </Menu>}
 
-    {!user.email && <Link className='text-gray-300 hover:bg-gray-700 hover:text-white
+    {!user.email && <Link className=' text-gray-300 hover:bg-gray-700 hover:text-white
                           px-3 py-2 rounded-md text-sm font-medium' to='/register'>Sign up</Link>}
                {!user.email && <Link className='text-gray-300 hover:bg-gray-700 hover:text-white
                           px-3 py-2 rounded-md text-sm font-medium' to='/login'>Log in</Link>}
@@ -130,7 +130,7 @@ const NavBar =()=> {
                   <div>
                   <p className='block px-4 py-2 text-sm text-gray-700'>{user?.name}</p>
 
-                    <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                    <Menu.Button className="text-center bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
@@ -154,7 +154,7 @@ const NavBar =()=> {
                       <Menu.Item>
                         {({ active }) => (
                           <Link to="*"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'text-center block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
                           </Link>
@@ -163,7 +163,7 @@ const NavBar =()=> {
                       <Menu.Item>
                         {({ active }) => (
                           <Link to="*"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'text-center block px-4 py-2 text-sm text-gray-700')}
                           >
                             Settings
                           </Link>
@@ -172,7 +172,7 @@ const NavBar =()=> {
                       <Menu.Item>
                         {({ active }) => (
                           <p onClick={logout}
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 cursor-pointer')}
+                            className={classNames(active ? 'bg-gray-100' : '', 'text-center block px-4 py-2 text-sm text-gray-700 cursor-pointer')}
                           >
                             Sign out
                           </p>
@@ -187,7 +187,7 @@ const NavBar =()=> {
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden">
+          <Disclosure.Panel className="sm:hidden text-center">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
 
@@ -208,11 +208,11 @@ const NavBar =()=> {
               ))}
               
               <Disclosure.Button>
-              <Menu as="div" className="relative inline-block text-left z-40">
+              <Menu as="div" className="relative inline-block  z-40">
       <div>
-        <Menu.Button className="inline-flex justify-center w-full text-gray-300 hover:bg-gray-700 hover:text-white shadow-sm px-4 py-2 text-sm font-medium rounded-md ">
+        <Menu.Button className=" m-auto inline-flex justify-center w-full text-gray-300 hover:bg-gray-700 hover:text-white shadow-sm px-4 py-2 text-sm font-medium rounded-md ">
           Dashboad
-          <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+          <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5 " aria-hidden="true" />
         </Menu.Button>
 
       </div>

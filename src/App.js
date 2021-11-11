@@ -14,10 +14,12 @@ import Products from "./Components/Pages/Products/Products";
 import Register from "./Components/Pages/Register/Register";
 import  NotFound  from "./Components/Pages/NotFound/NotFound";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import PrivateRoute from "./Components/Redirect/PrivateRoute";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <AuthProvider>
       <Router>
         <NavBar></NavBar>
@@ -34,12 +36,12 @@ function App() {
           <Route exact path='/aboutUs'>
             <AboutUs></AboutUs>
           </Route>
-          <Route exact path='/addProduct'>
+          <PrivateRoute exact path='/addProduct'>
             <AddProduct></AddProduct>
-          </Route>
-          <Route exact path='/manageProducts'>
+          </PrivateRoute>
+          <PrivateRoute exact path='/manageProducts'>
             <ManageProducts></ManageProducts>
-          </Route>
+          </PrivateRoute>
           <Route exact path='/login'>
             <Login></Login>
           </Route>
@@ -54,6 +56,7 @@ function App() {
           <Route exact path='/'>
           </Route> */}
         </Switch>
+        <Footer></Footer>
       </Router>
       </AuthProvider>
     </div>
