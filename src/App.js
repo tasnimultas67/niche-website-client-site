@@ -1,23 +1,61 @@
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import './App.css';
+import NavBar from "./Components/Header/NavBar";
+import AboutUs from "./Components/Pages/About Us/AboutUs";
+import AddProduct from "./Components/Pages/AddProduct/AddProduct";
+import Home from "./Components/Pages/Home/Home";
+import Login from "./Components/Pages/Login/Login";
+import ManageProducts from "./Components/Pages/ManageProducts/ManageProducts";
+import Products from "./Components/Pages/Products/Products";
+import Register from "./Components/Pages/Register/Register";
+import  NotFound  from "./Components/Pages/NotFound/NotFound";
+import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+      <Router>
+        <NavBar></NavBar>
+        <Switch>
+          <Route exact path='/'>
+            <Home></Home>
+          </Route>
+          <Route exact path='/home'>
+            <Home></Home>
+          </Route>
+          <Route exact path='/products'>
+            <Products></Products>
+          </Route>
+          <Route exact path='/aboutUs'>
+            <AboutUs></AboutUs>
+          </Route>
+          <Route exact path='/addProduct'>
+            <AddProduct></AddProduct>
+          </Route>
+          <Route exact path='/manageProducts'>
+            <ManageProducts></ManageProducts>
+          </Route>
+          <Route exact path='/login'>
+            <Login></Login>
+          </Route>
+          <Route exact path='/register'>
+            <Register></Register>
+          </Route>
+          <Route path='*'>
+            <NotFound></NotFound>
+          </Route>
+          {/* <Route exact path='/'>
+          </Route>
+          <Route exact path='/'>
+          </Route> */}
+        </Switch>
+      </Router>
+      </AuthProvider>
     </div>
   );
 }
