@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import useAuth from '../hooks/useAuth'
 
 const navigation = [
-  { name: 'Home', to: '/home', current: true },
+  { name: 'Home', to: '/home', current: false },
   { name: 'Products', to: '/products', current: false },
   { name: 'About us', to: '/aboutus', current: false },
 ]
@@ -113,13 +113,18 @@ const NavBar =()=> {
         </Menu.Items>
       </Transition>
     </Menu>
+
+    {!user.email && <Link className='text-gray-300 hover:bg-gray-700 hover:text-white
+                          px-3 py-2 rounded-md text-sm font-medium' to='/register'>Sign up</Link>}
+               {!user.email && <Link className='text-gray-300 hover:bg-gray-700 hover:text-white
+                          px-3 py-2 rounded-md text-sm font-medium' to='/login'>Log in</Link>}
                   </div>
                 </div>
               </div>
               
 
               {/* user Profile */}
-              {user?.email ? <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              {user?.email && <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 
                 <Menu as="div" className="ml-3 relative z-40">
                   <div>
@@ -177,8 +182,7 @@ const NavBar =()=> {
                   </Transition>
                 </Menu>
               </div>
-              : 
-              <Link className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium' to='/login'>Login</Link> }
+            }
               
             </div>
           </div>
@@ -186,19 +190,23 @@ const NavBar =()=> {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
+
                 <Disclosure.Button
-                  key={item.name}
-                  as="a"
+                   key={item.name}
+                  as="Link"
                   to={item.to}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium cursor-pointer'
                   )}
                   aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
+                  >
+                  <Link to={item.to}>{item.name}</Link>
+
+                  
                 </Disclosure.Button>
               ))}
+              
               <Disclosure.Button>
               <Menu as="div" className="relative inline-block text-left z-40">
       <div>
@@ -206,7 +214,17 @@ const NavBar =()=> {
           Dashboad
           <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
         </Menu.Button>
+
       </div>
+      <div>
+        {/* <Menu.Item className="inline-flex justify-center w-full text-gray-300 hover:bg-gray-700 hover:text-white shadow-sm px-4 py-2 text-sm font-medium rounded-md ">
+          Sign up
+          
+        </Menu.Item> */}
+
+      </div>
+
+      
 
       <Transition
         as={Fragment}
@@ -259,7 +277,10 @@ const NavBar =()=> {
         </Menu.Items>
       </Transition>
     </Menu>
-              </Disclosure.Button>
+              </Disclosure.Button> 
+              
+               {!user.email && <Link className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 text-center rounded-md text-base font-medium cursor-pointer' to='/register'>Sign up</Link>}
+               {!user.email && <Link className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 text-center rounded-md text-base font-medium cursor-pointer' to='/login'>Log in</Link>}
               
             </div>
           </Disclosure.Panel>
