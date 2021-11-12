@@ -47,10 +47,10 @@ const Home = () => {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center ">
                 <div className="rounded-md shadow">
-                  <Link to='*'
+                  <Link to='/products'
                     className="w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-green-400 to-blue-500 md:py-4 md:text-lg md:px-10 "
                   >
-                    Get started
+                    Explore Products
                   </Link>
                 </div>
                 

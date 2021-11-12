@@ -8,7 +8,7 @@ import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const {user, loginUser, isLoading, authError} = useAuth()
+    const {user, loginUser, isLoading, authError, signInWithGoogle} = useAuth()
 
     const location = useLocation();
     const history = useHistory();
@@ -27,6 +27,9 @@ const Login = () => {
     e.preventDefault();
 
 }
+    const handleGoogleSignIn =()=>{
+      signInWithGoogle(location, history)
+  }
 
   return (
     <>
@@ -88,14 +91,14 @@ const Login = () => {
           <div><h2 className='button-down-lin'><span>Or continue with</span></h2></div>
           <div className='flex'>
                 <div className='flex-grow mr-2'>
-                <button className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"><i className="fab fa-google text-1xl"></i></button>
+                <button onClick={handleGoogleSignIn} className="text-xl group relative w-full flex justify-center py-2 px-4 border border-4 text-sm font-bold rounded-md text-black bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"><i className="fab fa-google items-center text-xl mr-1 text-yellow-300"></i>Google</button>
                 </div>
                 <div className='flex-grow ml-2'>
-                <button className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"><i className="fab fa-facebook text-1xl"></i></button>
+                <button className=" text-xl group relative w-full flex justify-center py-2 px-4 border border-4 text-sm font-bold rounded-md text-black bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"><i className="fab fa-facebook items-center text-xl mr-1 text-blue-700 "></i>Facebook</button>
                 </div>
           </div>
          
-          <Link to='/register' className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black ">New user? Create Account</Link>
+          <Link to='/register' className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-black ">New user? <span className='text-blue-700'>Create Account</span></Link>
         </div>}
         {isLoading && <div className="spinner icon-spinner-5" aria-hidden="true"></div>}
       </div>

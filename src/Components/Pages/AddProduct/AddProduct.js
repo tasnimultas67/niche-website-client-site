@@ -1,21 +1,26 @@
 import React,{ useRef, useState,Fragment } from 'react';
 import axios from 'axios';
-import { useForm } from "react-hook-form";
+import { useForm,} from "react-hook-form";
 
 const AddProduct = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset} = useForm();
     const onSubmit = data =>{
          console.log(data);
          axios.post('http://localhost:5000/products', data)
          .then(res=> {
-             console.log(res)
+            if(res.data.insertedId){
+                // setOpen(true)
+                console.log(res);
+              alert('Successfully Added');
+              reset()
+              }
          })
         }
 
     return (
         <div>
             <div>
-                <h1 className='text-2xl font-medium mt-4'>Please Add Product Information</h1>
+                <h1 className='text-2xl font-bold mt-4 md:mt-5 text-center '>Please Add Product Information</h1>
             </div>
             <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">

@@ -16,6 +16,7 @@ import  NotFound  from "./Components/Pages/NotFound/NotFound";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import PrivateRoute from "./Components/Redirect/PrivateRoute";
 import Footer from "./Components/Footer/Footer";
+import ProductDetails from "./Components/Pages/Product Details/ProductDetails";
 
 function App() {
   return (
@@ -41,6 +42,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute exact path='/manageProducts'>
             <ManageProducts></ManageProducts>
+          </PrivateRoute>
+          <PrivateRoute exact path='/productDetails/:id'>
+            <ProductDetails></ProductDetails>
           </PrivateRoute>
           <Route exact path='/login'>
             <Login></Login>

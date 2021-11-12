@@ -20,28 +20,22 @@ const Register = () => {
       setLoginData(newLoginData);
   }
   const handleLoginSubmit = e => {
-      
-      registerUser(loginData.email, loginData.password, loginData.name, history);
+      registerUser(loginData.email, loginData.password, loginData.name, loginData.name, history);
       console.log(loginData)
       e.preventDefault();
 
 
   }
-    // const onSubmit = data =>{
-    //     console.log(data);
-        
-    //    }
-
   return (
     <>
 
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8">
+      { !isLoading && <div className="max-w-md w-full space-y-8">
           <div>
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Please Sign up</h2>
             
           </div>
-          { !isLoading && <form onSubmit={handleLoginSubmit} className="mt-8 space-y-6" >
+          <form onSubmit={handleLoginSubmit} className="mt-8 space-y-6" >
              
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
@@ -54,7 +48,7 @@ const Register = () => {
                   required
                   onBlur={handleOnBlur}
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Name"
+                  placeholder="Your Name"
                 />
               </div>
               <div>
@@ -100,11 +94,21 @@ const Register = () => {
               </button>
             </div>
 
-          </form>}
-          {isLoading && <div className="spinner icon-spinner-5" aria-hidden="true"></div>}
+          </form>
 
-          <Link to='/login' className=" relative w-full flex justify-center border border-transparent text-sm font-medium rounded-md text-black ">Already Registered? Login</Link>
-        </div>
+          <div><h2 className='button-down-lin'><span>Or continue with</span></h2></div>
+          <div className='flex'>
+                <div className='flex-grow mr-2'>
+                <button  className="text-xl group relative w-full flex justify-center py-2 px-4 border border-4 text-sm font-bold rounded-md text-black bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"><i className="fab fa-google items-center text-xl mr-1 text-yellow-300"></i>Google</button>
+                </div>
+                <div className='flex-grow ml-2'>
+                <button className=" text-xl group relative w-full flex justify-center py-2 px-4 border border-4 text-sm font-bold rounded-md text-black bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"><i className="fab fa-facebook items-center text-xl mr-1 text-blue-700 "></i>Facebook</button>
+                </div>
+          </div>
+          <Link to='/login' className=" relative w-full flex justify-center border border-transparent text-sm font-medium rounded-md text-black ">Already Registered? <span className='text-blue-700'>Login</span></Link>
+        </div>}
+        {isLoading && <div className="spinner icon-spinner-5" aria-hidden="true"></div>}
+
       </div>
     </>
   )
