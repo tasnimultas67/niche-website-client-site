@@ -17,6 +17,7 @@ import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import PrivateRoute from "./Components/Redirect/PrivateRoute";
 import Footer from "./Components/Footer/Footer";
 import ProductDetails from "./Components/Pages/Product Details/ProductDetails";
+import BuyNow from "./Components/Pages/Buy Now/BuyNow";
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute exact path='/productDetails/:id'>
             <ProductDetails></ProductDetails>
+          </PrivateRoute>
+          <PrivateRoute exact path='/productDetails/buyProduct/:id'>
+            <BuyNow></BuyNow>
           </PrivateRoute>
           <Route exact path='/login'>
             <Login></Login>

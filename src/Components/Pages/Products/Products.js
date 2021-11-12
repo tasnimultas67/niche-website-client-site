@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import Product from '../Product/Product';
+import './Products.css'
 
 
 
@@ -17,15 +18,18 @@ const Products = () => {
             });
     }, [])
     return (
-        <div className=''>
-            <div className='lg:bg-indigo-700  md:h-20 lg:h-24 w-full mt-3 overflow-hidden '>
-            <h1 className='text-3xl text-left ml-5 font-semibold lg:text-white text-black lg:mt-5 w-full'>Our <span className='font-bold text-indigo-700 lg:text-white md:text-white'>product</span></h1>
+        <div className='items-center justify-center m-auto'>
+            
+            <div className='w-full m-auto bg-cover mt-10'>
+                <img className=' m-auto' src="https://m.media-amazon.com/images/S/aplus-seller-content-images-us-east-1/A21TJRUUN4KGV/AHXTPWY14UPXE/f8e2f061-8203-479a-bcae-90b090cffbb6._CR0,0,970,300_PT0_SX970__.jpg" alt="" />
             </div>
-            <div className="m-auto mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8 container m-auto ">
-                {
-                    products.map(product => <Product key={product._id} product={product}></Product>)
-                }
-            </div>
+        {!isLoading && <div className="m-auto mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8 container m-auto mb-5">
+            {
+                products.map(product => <Product key={product._id} product={product}></Product>)
+            }
+        </div>}
+            {isLoading && <div className="spinner icon-spinner-5 m-auto" aria-hidden="true"></div>}
+
 
         </div>
     );
