@@ -4,3 +4,11 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
+/* @supports (-webkit-text-stroke: 1px black) {
+    .text-shadow {
+      -webkit-text-stroke: 1px white;
+      -webkit-text-fill-color: black;
+    }
+  } */

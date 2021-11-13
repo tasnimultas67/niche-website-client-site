@@ -26,7 +26,7 @@ const BuyNow = () => {
     const onSubmit = data => {
       const newData={...data , status: "Pending", orderedId:`${id}`, price:`${orderInfo.pPrice}`, serviceName:`${orderInfo.pName}`,img:`${user.photoURL}`  }
 
-        console.log("this is newData",newData);
+        // console.log("this is newData",newData);
 
         fetch('http://localhost:5000/orders', {
             method:'POST',

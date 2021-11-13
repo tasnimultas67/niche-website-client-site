@@ -11,12 +11,12 @@ const Footer = () => {
     <nav className="FooterNavigationSection">
       <h2 className='h2'>About</h2>
       <ul className='ul'>
-        <li><Link className='a' to="#">About Us</Link></li>
-        <li><Link className='a' to="#">HelmatesBD Blog</Link></li>
-        <li><Link className='a' to="#">Press</Link></li>
-        <li><Link className='a' to="#">Jobs</Link></li>
-        <li><Link className='a' to="#">Reviews</Link></li>
-        <li><Link className='a' to="#">Investor Centre</Link></li>
+        <li><Link className='a' to="/aboutUs">About Us</Link></li>
+        <li><Link className='a' to="*">HelmatesBD Blog</Link></li>
+        <li><Link className='a' to="*">Press</Link></li>
+        <li><Link className='a' to="*">Jobs</Link></li>
+        <li><Link className='a' to="*">Reviews</Link></li>
+        <li><Link className='a' to="/contactUs">Contact us</Link></li>
       </ul>
     </nav>
     <nav className="FooterNavigationSection">
@@ -29,9 +29,9 @@ const Footer = () => {
     <nav className="FooterNavigationSection">
       <h2 className='h2'>Our Brands</h2>
       <ul className='ul'>
-        <li><Link className='a' to="#">Dinner Bowl</Link></li>
-        <li><Link className='a' to="#">Waggly</Link></li>
-        <li><Link className='a' to="#">HelmatesBD Insurance</Link></li>
+        <li><Link className='a' to="*">Dinner Bowl</Link></li>
+        <li><Link className='a' to="*">Waggly</Link></li>
+        <li><Link className='a' to="*">HelmatesBD Insurance</Link></li>
       </ul>
     </nav>
     <nav className="FooterNavigationSection">

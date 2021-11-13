@@ -21,6 +21,10 @@ import BuyNow from "./Components/Pages/Buy Now/BuyNow";
 import MyOrders from "./Components/Pages/My Orders/MyOrders";
 import ManageOrders from "./Components/Pages/Manage Orders/ManageOrders";
 import MakeAdmin from "./Components/Pages/Make Admin/MakeAdmin";
+import Contact from "./Components/Pages/Contact us/Contact";
+import AddReview from "./Components/Pages/Add Review/AddReview";
+import Pay from "./Components/Pages/Pay/Pay";
+import UpdateOrder from "./Components/Pages/Update Order/UpdateOrder";
 
 function App() {
   return (
@@ -49,6 +53,18 @@ function App() {
           </PrivateRoute>
           <PrivateRoute exact path='/makeAdmin'>
             <MakeAdmin></MakeAdmin>
+          </PrivateRoute>
+          <PrivateRoute exact path='/pay'>
+            <Pay></Pay>
+          </PrivateRoute>
+          <PrivateRoute exact path='/contactUs'>
+            <Contact></Contact>
+          </PrivateRoute>
+          <PrivateRoute exact path='/manageorders/updateUserOrder/:id'>
+            <UpdateOrder></UpdateOrder>
+          </PrivateRoute>
+          <PrivateRoute exact path='/addReview'>
+            <AddReview></AddReview>
           </PrivateRoute>
           <PrivateRoute exact path='/manageOrders'>
             <ManageOrders></ManageOrders>

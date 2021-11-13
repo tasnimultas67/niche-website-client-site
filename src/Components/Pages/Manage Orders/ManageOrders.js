@@ -27,7 +27,7 @@ const ManageOrders = () => {
     })
     .then(res=>res.json())
     .then(data =>{
-        console.log(data);
+        // console.log(data);
         if(data.deletedCount){
         const remaining = ordersId.filter(ordered => ordered._id !== id);
         setordersId(remaining);

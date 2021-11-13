@@ -23,7 +23,7 @@ const Login = () => {
 
   const handleLoginSubmit = e => {
       loginUser(loginData.email, loginData.password, location, history)
-    console.log(loginData)
+    // console.log(loginData)
     e.preventDefault();
 
 }

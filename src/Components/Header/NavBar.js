@@ -137,7 +137,7 @@ const NavBar =()=> {
             </Menu.Item>}
             {!admin&&<Menu.Item>
               {({ active }) => (
-                <Link to='*'
+                <Link to='/addReview'
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
@@ -147,15 +147,27 @@ const NavBar =()=> {
                 </Link>
               )}
             </Menu.Item>}
+            {!admin&&<Menu.Item>
+              {({ active }) => (
+                <Link to='/pay'
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Pay
+                </Link>
+              )}
+            </Menu.Item>}
           </div>
         </Menu.Items>
       </Transition>
     </Menu>}
 
-    {!user.email && <Link className=' text-gray-300 hover:bg-gray-700 hover:text-white
-                          px-3 py-2 rounded-md text-sm font-medium' to='/register'>Sign up</Link>}
-               {!user.email && <Link className='text-gray-300 hover:bg-gray-700 hover:text-white
-                          px-3 py-2 rounded-md text-sm font-medium' to='/login'>Log in</Link>}
+    {!user.email && <Link className='bg-indigo-600 text-white hover:bg-gray-700 hover:text-white
+                          px-3 py-2  text-sm font-medium' to='/register'>Sign up</Link>}
+               {!user.email && <Link className='text-white hover:bg-gray-700 hover:text-white
+                          px-3 py-2 bg-indigo-600 text-sm font-medium' to='/login'>Log in</Link>}
                   </div>
                 </div>
               </div>
@@ -337,7 +349,7 @@ const NavBar =()=> {
             </Menu.Item>}
             {!admin&&<Menu.Item>
               {({ active }) => (
-                <Link to='*'
+                <Link to='/addReview'
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
@@ -347,14 +359,26 @@ const NavBar =()=> {
                 </Link>
               )}
             </Menu.Item>}
+            {!admin&&<Menu.Item>
+              {({ active }) => (
+                <Link to='/pay'
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Pay
+                </Link>
+              )}
+            </Menu.Item>}
           </div>
         </Menu.Items>
       </Transition>
     </Menu>
               </Disclosure.Button> 
               
-               {!user.email && <Link className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 text-center rounded-md text-base font-medium cursor-pointer' to='/register'>Sign up</Link>}
-               {!user.email && <Link className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 text-center rounded-md text-base font-medium cursor-pointer' to='/login'>Log in</Link>}
+               {!user.email && <Link className='bg-indigo-600 text-white hover:bg-gray-700 hover:text-white block px-3 py-2 text-center rounded-md text-base font-medium cursor-pointer' to='/register'>Sign up</Link>}
+               {!user.email && <Link className='bg-indigo-600 text-white hover:bg-gray-700 hover:text-white block px-3 py-2 text-center rounded-md text-base font-medium cursor-pointer' to='/login'>Log in</Link>}
               
             </div>
           </Disclosure.Panel>
