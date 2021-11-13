@@ -12,7 +12,7 @@ const AddReview = () => {
   
         //   console.log("this is newData",newData);
   
-          fetch('http://localhost:5000/reviews', {
+          fetch('https://hidden-falls-85514.herokuapp.com/reviews', {
               method:'POST',
               headers:{
                   'content-type':'application/json'

@@ -5,7 +5,7 @@ const Testimonials = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/allreviews')
+        fetch('https://hidden-falls-85514.herokuapp.com/allreviews')
             .then(res => res.json())
             .then(data => {
             //   console.log(data)

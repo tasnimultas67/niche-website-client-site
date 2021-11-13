@@ -12,7 +12,7 @@ const ManageOrders = () => {
   
   
     useEffect(() => {
-      fetch('http://localhost:5000/manageorders')
+      fetch('https://hidden-falls-85514.herokuapp.com/manageorders')
           .then(res => res.json())
           .then(data => {
             // console.log(data)
@@ -21,7 +21,7 @@ const ManageOrders = () => {
   }, [ordersId])
   
   const handleDelete = id =>{
-    const url = `http://localhost:5000/ordered/${id}`
+    const url = `https://hidden-falls-85514.herokuapp.com/ordered/${id}`
     fetch(url, {
         method: 'DELETE'
     })

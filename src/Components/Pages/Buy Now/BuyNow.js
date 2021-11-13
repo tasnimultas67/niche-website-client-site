@@ -18,7 +18,7 @@ const BuyNow = () => {
 
     // console.log(orderInfo)
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://hidden-falls-85514.herokuapp.com/products/${id}`)
         .then(res=>res.json())
         .then(info=>setOrderInfo(info))
     },[id])
@@ -28,7 +28,7 @@ const BuyNow = () => {
 
         // console.log("this is newData",newData);
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://hidden-falls-85514.herokuapp.com/orders', {
             method:'POST',
             headers:{
                 'content-type':'application/json'

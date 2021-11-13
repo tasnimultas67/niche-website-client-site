@@ -12,7 +12,7 @@ const MyOrders = () => {
     const {user} = useAuth()
     
     const handleDelete = id =>{
-      const url = `http://localhost:5000/ordered/${id}`
+      const url = `https://hidden-falls-85514.herokuapp.com/ordered/${id}`
       fetch(url, {
           method: 'DELETE'
       })
@@ -28,7 +28,7 @@ const MyOrders = () => {
       })
     }
     useEffect(()=>{
-        const url =`http://localhost:5000/allorders?email=${user.email}`
+        const url =`https://hidden-falls-85514.herokuapp.com/allorders?email=${user.email}`
         fetch(url)
         .then(res => res.json())
         .then(data => setOrderedUser(data))

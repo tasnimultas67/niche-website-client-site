@@ -9,7 +9,7 @@ const UpdateOrder = () => {
     const {id}=useParams();
 
     useEffect(()=>{
-        const url =`http://localhost:5000/manageOrders/${id}`;
+        const url =`https://hidden-falls-85514.herokuapp.com/manageOrders/${id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setUpdateOrder(data))
@@ -17,7 +17,7 @@ const UpdateOrder = () => {
 
     //update status
     const handleUpdateOrder = e =>{
-        const url =`http://localhost:5000/manageorders/${id}`;
+        const url =`https://hidden-falls-85514.herokuapp.com/manageorders/${id}`;
         fetch(url, {
             method:'PUT',
             headers:{
