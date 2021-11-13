@@ -22,7 +22,7 @@ const Home = () => {
     fetch('https://hidden-falls-85514.herokuapp.com/products')
         .then(res => res.json())
         .then(data => {
-            setProducts(data.products);
+            setProducts(data);
         });
 }, [])
 
