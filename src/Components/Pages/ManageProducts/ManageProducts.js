@@ -20,7 +20,7 @@ const ManageProducts = () => {
     useEffect(()=>{
         fetch('https://hidden-falls-85514.herokuapp.com/products')
         .then(res => res.json())
-        .then(data => setProducts(data.products))
+        .then(data => setProducts(data))
     },[setProducts]);
 
     const handleDelete = id =>{
