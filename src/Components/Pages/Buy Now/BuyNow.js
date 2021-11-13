@@ -15,7 +15,8 @@ const BuyNow = () => {
     const { user } = useAuth();
     const[orderInfo, setOrderInfo] = useState({})
 
-    // console.log(user)
+
+    // console.log(orderInfo)
     useEffect(()=>{
         fetch(`http://localhost:5000/products/${id}`)
         .then(res=>res.json())
@@ -23,9 +24,9 @@ const BuyNow = () => {
     },[id])
 
     const onSubmit = data => {
-      const newData={...data , status: "pending", orderedId:`${id}`, price:`${orderInfo.price}`, serviceName:`${orderInfo.bestFor}`,img:`${user.photoURL}`  }
+      const newData={...data , status: "Pending", orderedId:`${id}`, price:`${orderInfo.pPrice}`, serviceName:`${orderInfo.pName}`,img:`${user.photoURL}`  }
 
-        console.log(newData);
+        console.log("this is newData",newData);
 
         fetch('http://localhost:5000/orders', {
             method:'POST',
@@ -36,7 +37,7 @@ const BuyNow = () => {
         })
         .then(res => res.json())
         .then(result => {
-            console.log(result);
+            // console.log(result);
             if(result.insertedId){
                 setOpen(true);
                 reset()
@@ -62,7 +63,7 @@ const BuyNow = () => {
             {errors.email && <span className="error ">This field is required</span>}
             <input className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder="Address" defaultValue="" {...register("address",{ required: true})} />
             <input className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder="City" defaultValue="" {...register("city",{ required: true})} />
-            <input className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder="phone number" defaultValue="" {...register("phone",{ required: true})} />
+            <input className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' placeholder="phone number" defaultValue="" {...register("phone",{ required: true, maxLength:11})} />
             <input className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm' defaultValue={user.photoURL} {...register("img",{ required: true})} placeholder='Pofile Image URL' /> <br />
             <input className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm cursor-pointer' type="submit" />
             </form>

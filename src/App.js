@@ -18,6 +18,9 @@ import PrivateRoute from "./Components/Redirect/PrivateRoute";
 import Footer from "./Components/Footer/Footer";
 import ProductDetails from "./Components/Pages/Product Details/ProductDetails";
 import BuyNow from "./Components/Pages/Buy Now/BuyNow";
+import MyOrders from "./Components/Pages/My Orders/MyOrders";
+import ManageOrders from "./Components/Pages/Manage Orders/ManageOrders";
+import MakeAdmin from "./Components/Pages/Make Admin/MakeAdmin";
 
 function App() {
   return (
@@ -44,11 +47,20 @@ function App() {
           <PrivateRoute exact path='/manageProducts'>
             <ManageProducts></ManageProducts>
           </PrivateRoute>
+          <PrivateRoute exact path='/makeAdmin'>
+            <MakeAdmin></MakeAdmin>
+          </PrivateRoute>
+          <PrivateRoute exact path='/manageOrders'>
+            <ManageOrders></ManageOrders>
+          </PrivateRoute>
           <PrivateRoute exact path='/productDetails/:id'>
             <ProductDetails></ProductDetails>
           </PrivateRoute>
           <PrivateRoute exact path='/productDetails/buyProduct/:id'>
             <BuyNow></BuyNow>
+          </PrivateRoute>
+          <PrivateRoute exact path='/myOrders'>
+            <MyOrders></MyOrders>
           </PrivateRoute>
           <Route exact path='/login'>
             <Login></Login>

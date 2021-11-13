@@ -85,10 +85,10 @@ const ManageProducts = () => {
                 {/* Button */}
               <div>
                 <Link to={`/productdetails/${product._id}`}>
-                  <button className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium  text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>View this Menu</button>
+                  <button className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium  text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>View this Product</button>
                 </Link>
               </div>
-              <button onClick={()=> handleDelete(product._id)} className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-b-md text-white bg-indigo-800 hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>Remove this Product</button>
+              <button onClick={()=> handleDelete(product._id)} className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-b-md text-white bg-indigo-700 hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>Remove this Product</button>
         </div>
         </div>
         </div>

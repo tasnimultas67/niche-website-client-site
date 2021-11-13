@@ -1,6 +1,6 @@
 
 import { LockClosedIcon } from '@heroicons/react/solid'
-import { Link, useLocation, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import './Register.css'
@@ -21,7 +21,7 @@ const Register = () => {
   }
   const handleLoginSubmit = e => {
       registerUser(loginData.email, loginData.password, loginData.name, loginData.name, history);
-      console.log(loginData)
+      // console.log(loginData)
       e.preventDefault();
 
 

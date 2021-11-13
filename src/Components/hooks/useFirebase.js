@@ -11,6 +11,9 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [authError, setAuthError] = useState('')
     const [user, setUser] = useState({});
+    const [admin, setAdmin] = useState(false);
+
+
     const auth = getAuth();
 
 
@@ -19,15 +22,17 @@ const useFirebase = () => {
     const registerUser = (email, password, name, history) =>{
       setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        .then(() => {
             setAuthError('')
             const newUser = {email, displayName: name};
             setUser(newUser);
+            // save user to the database
+            saveUser(email, name, 'POST');
             updateProfile(auth.currentUser, {
               displayName: name,
             }).then(() => {
             })
-            .catch((error) => {
+            .catch(() => {
             });
             
             history.replace('/');
@@ -43,7 +48,7 @@ const useFirebase = () => {
     const loginUser = (email, password, location, history)=>{
       setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            .then(() => {
             const destination = location.state?.from || '/';
             history.replace(destination)
             setAuthError('')
@@ -61,10 +66,11 @@ const useFirebase = () => {
       setIsLoading(true)
       signInWithPopup(auth, googleProvider)
   .then((result) => {
-    const user = result.user;
-    const destination = location.state?.from || '/';
-    history.replace(destination)
+    // const user = result.user;
+    saveUser(user.email, user.displayName, 'PUT')
     setAuthError("");
+    const destination = location.state?.from || '/';
+    history.replace(destination);
 
   }).catch((error) => {
     setAuthError(error.message)
@@ -90,6 +96,11 @@ const useFirebase = () => {
               return () => unsubscribe;
           },[auth]);
 
+          useEffect(()=>{
+            fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res=>res.json())
+            .then(data=>setAdmin(data.admin))
+          },[user.email])
 
     const logout = () =>{
       setIsLoading(true)
@@ -104,9 +115,22 @@ const useFirebase = () => {
 
     }
 
+    const saveUser = (email, displayName, method) => {
+      const user = {email, displayName};
+      fetch('http://localhost:5000/users', {
+        method: method,
+        headers: {
+          'content-type' : 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+      .then()
+    }
+
 
 
     return {
+      admin,
         user,
         isLoading,
         authError,

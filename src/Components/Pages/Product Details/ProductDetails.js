@@ -11,7 +11,7 @@ const ProductDetails = () => {
         .then(res => res.json())
         .then(data => setProduct(data))
     },[id])
-    const {_id, pName, pImg1, pImg2, pImg3, pPrice, pSize, pBrand, pColor, pDescription} = product;
+    const { pName, pImg1, pImg2, pImg3, pPrice, pSize, pBrand, pColor, pDescription} = product;
 
     return (
             <div className="bg-white">
@@ -73,11 +73,8 @@ const ProductDetails = () => {
                 </div>
               </div>
 
-              <button
-                className="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                <Link to={`/productDetails/buyProduct/${id}`}>Buy Now</Link>
-              </button>
+              
+                <Link className="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" to={`/productDetails/buyProduct/${id}`}>Buy Now</Link>
             </div>
           </div>
 

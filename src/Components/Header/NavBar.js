@@ -15,8 +15,8 @@ function classNames(...classes) {
 }
 
 const NavBar =()=> {
-  const {user, logout} = useAuth()
-  console.log(user)
+  const {user, logout, admin} = useAuth()
+  // console.log(user)
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -55,6 +55,7 @@ const NavBar =()=> {
                       </Link>
                     ))}
                    
+                   {/* DASHBOAD HERE */}
                     {user?.email &&<Menu as="div" className="relative inline-block text-left z-40">
       <div>
         <Menu.Button className="inline-flex justify-center w-full text-gray-300 hover:bg-gray-700 hover:text-white shadow-sm px-4 py-2 text-sm font-medium rounded-md ">
@@ -74,7 +75,7 @@ const NavBar =()=> {
       >
         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none text-center">
           <div className="py-1">
-            <Menu.Item>
+            {admin &&<Menu.Item>
               {({ active }) => (
                 <Link to='/addProduct'
                   className={classNames(
@@ -85,8 +86,8 @@ const NavBar =()=> {
                   Add Product
                 </Link>
               )}
-            </Menu.Item>
-            <Menu.Item>
+            </Menu.Item>}
+            {admin && <Menu.Item>
               {({ active }) => (
                 <Link to='/manageProducts'
                   className={classNames(
@@ -97,8 +98,44 @@ const NavBar =()=> {
                   Manage Products
                 </Link>
               )}
-            </Menu.Item>
-            <Menu.Item>
+            </Menu.Item>}
+            {!admin&&<Menu.Item>
+              {({ active }) => (
+                <Link to='/myOrders'
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  My Orders
+                </Link>
+              )}
+            </Menu.Item>}
+            {admin && <Menu.Item>
+              {({ active }) => (
+                <Link to='/manageOrders'
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Manage Orders
+                </Link>
+              )}
+            </Menu.Item>}
+            {admin &&<Menu.Item>
+              {({ active }) => (
+                <Link to='/makeAdmin'
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Make Admin
+                </Link>
+              )}
+            </Menu.Item>}
+            {!admin&&<Menu.Item>
               {({ active }) => (
                 <Link to='*'
                   className={classNames(
@@ -109,7 +146,7 @@ const NavBar =()=> {
                   Add Review
                 </Link>
               )}
-            </Menu.Item>
+            </Menu.Item>}
           </div>
         </Menu.Items>
       </Transition>
@@ -137,7 +174,7 @@ const NavBar =()=> {
                         className="h-8 w-8 rounded-full"
                         src={user?.photoURL}
                         alt=""
-                      /> : <i class="fas fa-user-circle text-white text-3xl"></i>}
+                      /> : <i className="fas fa-user-circle text-white text-3xl"></i>}
                     </Menu.Button>
                   </div>
                   <Transition
@@ -238,7 +275,7 @@ const NavBar =()=> {
       >
         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none text-center">
           <div className="py-1">
-            <Menu.Item>
+            {admin&&<Menu.Item>
               {({ active }) => (
                 <Link to='/addProduct'
                   className={classNames(
@@ -249,8 +286,8 @@ const NavBar =()=> {
                   Add Product
                 </Link>
               )}
-            </Menu.Item>
-            <Menu.Item>
+            </Menu.Item>}
+            {admin&&<Menu.Item>
               {({ active }) => (
                 <Link to='/manageProducts'
                   className={classNames(
@@ -261,8 +298,44 @@ const NavBar =()=> {
                   Manage Products
                 </Link>
               )}
-            </Menu.Item>
-            <Menu.Item>
+            </Menu.Item>}
+            {!admin&&<Menu.Item>
+              {({ active }) => (
+                <Link to='/myOrders'
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  My Orders
+                </Link>
+              )}
+            </Menu.Item>}
+            {admin &&<Menu.Item>
+              {({ active }) => (
+                <Link to='/manageOrders'
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Manage Orders
+                </Link>
+              )}
+            </Menu.Item>}
+            {admin &&<Menu.Item>
+              {({ active }) => (
+                <Link to='/makeAdmin'
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Make Admin
+                </Link>
+              )}
+            </Menu.Item>}
+            {!admin&&<Menu.Item>
               {({ active }) => (
                 <Link to='*'
                   className={classNames(
@@ -273,7 +346,7 @@ const NavBar =()=> {
                   Add Review
                 </Link>
               )}
-            </Menu.Item>
+            </Menu.Item>}
           </div>
         </Menu.Items>
       </Transition>
